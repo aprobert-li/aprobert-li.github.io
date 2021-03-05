@@ -1,0 +1,179 @@
+body {
+  font-family: 'Poppins', sans-serif;
+}
+#board {
+  border: 2vh solid black;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+}
+.row {
+  width: 100%;
+  flex: 1;
+  display: flex;
+  flex-direction: row;
+}
+#r0 {
+  margin-top: 1vh;
+}
+.slot {
+  height: 98%;
+  text-align: center;
+  font-size: 6vh;
+  display: inline-block;
+  flex: 1;
+  font-weight: 700;
+  color: #49545B;
+}
+.slot:hover {
+  cursor: pointer;
+}
+#cover {
+  width: 100%;
+  height: 100%;
+  background-color: #2197EE;
+  opacity: 0.95;
+  position: absolute;
+}
+button {
+  background-color: #2197EE;
+  border: none;
+  color: white;
+  padding: 1.5vw 2.5vw;
+  font-size: 2vw;
+  font-weight: 700;
+  cursor: pointer;
+  outline: none;
+}
+#topContainer {
+  margin: auto;
+  margin-bottom: 5px;
+}
+
+h2 {
+  display: inline-block;
+  font-size: 2.5vw;
+  vertical-align: top;
+  margin-top: 0px;
+}
+
+input {
+  width: 50vw;
+  font-size: 2vw;
+  padding: 1vw;
+  margin-left: 10px;
+  margin-right: 10px;
+  margin-top: 0;
+  margin-bottom: 0;
+  vertical-align: top;
+}
+
+#submitbtn {
+  display: inline-block;
+  vertical-align: top;
+}
+
+.wordList {
+  display: inline-block;
+  margin: 1px 20px;
+  color: #2197EE;
+  font-size: 2vw;
+}
+
+.crossOut {
+  color: #C7D3DC;
+}
+#startGame {
+  font-size: 5vw;
+  position: absolute;
+  display: block;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 50%;
+  background-color: #EDDA5E;
+  color: #49545B;
+}
+#win {
+  display: none;
+  position: absolute;
+  width: 100%;
+  text-align: center;
+  top: 35%;
+  transform: translateY(-50%);
+  font-size: 7vh;
+  color: white;
+}
+
+#newGame {
+  display: none;
+  font-size: 5vw;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 50%;
+  background-color: #EDDA5E;
+  color: #49545B;
+}
+
+.clickedOn {
+  color: #EDDA5E !important;
+  font-weight: bold;
+}
+
+.found {
+  color: #2197EE;
+  font-weight: bold;
+}
+
+@media screen and (orientation: landscape) {
+  #board {
+    width: 70vh;
+    height: 70vh;
+  }
+  #topContainer {
+    height: 17vh;
+    width: 80vw;
+    margin-bottom: 15px;
+  }
+  #submitBtn {
+    padding-top: 1.25vw;
+    padding-bottom: 1.25vw;
+    font-size: medium;
+  }
+  #startGame {
+    font-size: x-large;
+  }
+  #newGame {
+    font-size: x-large;
+  }
+}
+@media screen and (orientation: portrait) {
+  #board {
+    width: 85vw;
+    height: 85vw;
+  }
+  #topContainer {
+    height: 15vh;
+  }
+  .wordList {
+    font-size: 3vw;
+  }
+  h2 {
+    font-size: 4vw;
+  }
+  input {
+    font-size: 3vw;
+  }
+}
+
+/*
+topContainer.style.width = "80vw";
+  topContainer.style.marginBottom="15px";
+  enterword.style.padding = "0.5vw";
+  submitbtn.style.fontSize="medium";
+  submitbtn.style.paddingTop='1.25vw';
+  submitbtn.style.paddingBottom="1.25vw";
+  start.style.fontSize="x-large";
+  newGame.style.fontSize="x-large";
+*/
