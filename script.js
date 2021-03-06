@@ -14,7 +14,7 @@ var wordList = document.querySelectorAll(".wordList");
 
 var totalLetters = ""; //String to add and count all the letters for words to find to make sure all words can fit.
 submitbtn.addEventListener("click", function () {
-  var wordValue = enterword.value.toUpperCase();
+  var wordValue = enterword.value.toUpperCase().replace(" ", "");
   totalLetters = totalLetters.concat(wordValue); //Add each word to this string
   
   if (totalLetters.length < 25) {
