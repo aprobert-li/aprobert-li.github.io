@@ -261,6 +261,7 @@ start.addEventListener("click", function () {
   cover.style.display="none";
   wordsToFind.innerHTML=""; //Remove the words that had been added as they were entered
   displayWordList(); //Display words from the words object to make them easier to work with in the game
+  enterword.value = ""; //Clear red warning message if it's there
 });
 
 //Click New Game button
