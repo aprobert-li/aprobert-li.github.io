@@ -14,23 +14,28 @@ var wordList = document.querySelectorAll(".wordList");
 
 var totalLetters = ""; //String to add and count all the letters for words to find to make sure all words can fit.
 submitbtn.addEventListener("click", function () {
-  var wordValue = enterword.value.toUpperCase().replace(" ", "");
-  totalLetters = totalLetters.concat(wordValue); //Add each word to this string
-  
-  if (totalLetters.length < 25) {
-    wordArray.push(wordValue); //Add each word to the array of words
-    
-    //Add each word to HTML to be displayed
-    var addWord = document.createElement("h3");
-    addWord.classList.add("wordList");
-    addWord.innerHTML = wordValue;
-    wordsToFind.appendChild(addWord);
-    enterword.value = "";
-  } else { // Once the limit has been reach don't allow more words to be added
-    enterword.value = "Can't fit more words in this puzzle";
-    enterword.style.color = "red";
-    submitbtn.style.display = "none";
+  if(enterword.value == "") {
+    alert("You need to type a word to add");
   }
+  else {
+    var wordValue = enterword.value.toUpperCase().replace(" ", "");
+    totalLetters = totalLetters.concat(wordValue); //Add each word to this string
+    
+    if (totalLetters.length < 25) {
+      wordArray.push(wordValue); //Add each word to the array of words
+      
+      //Add each word to HTML to be displayed
+      var addWord = document.createElement("h3");
+      addWord.classList.add("wordList");
+      addWord.innerHTML = wordValue;
+      wordsToFind.appendChild(addWord);
+      enterword.value = "";
+    } else { // Once the limit has been reach don't allow more words to be added
+      enterword.value = "Can't fit more words in this puzzle";
+      enterword.style.color = "red";
+      submitbtn.style.display = "none";
+    }
+  } 
 });
 
 // *** End words to find area ***
@@ -243,25 +248,30 @@ function fillBoard() {
 
 //Click Start button
 start.addEventListener("click", function () {
-  createBoard();
-  createWordsObject();
-  try { //Try to execute the placeWords function
-    placeWords();
+  if (wordArray.length == 0) {
+    alert("You haven't added any words");
   }
-  catch(error) { //If it can't then show an error alert and reload the page
-    alert("Couldn't fit all these words. Try again");
-    setTimeout(function() {
-      location.replace("./index.html");
-    }, 2000);
-  }
-  fillBoard();
-  findWords();
-  start.style.display="none";
-  var cover = document.querySelector('#cover');
-  cover.style.display="none";
-  wordsToFind.innerHTML=""; //Remove the words that had been added as they were entered
-  displayWordList(); //Display words from the words object to make them easier to work with in the game
-  enterword.value = ""; //Clear red warning message if it's there
+  else {
+    createBoard();
+    createWordsObject();
+    try { //Try to execute the placeWords function
+      placeWords();
+    }
+    catch(error) { //If it can't then show an error alert and reload the page
+      alert("Couldn't fit all these words. Try again");
+      setTimeout(function() {
+        location.replace("./index.html");
+      }, 2000);
+    }
+    fillBoard();
+    findWords();
+    start.style.display="none";
+    var cover = document.querySelector('#cover');
+    cover.style.display="none";
+    wordsToFind.innerHTML=""; //Remove the words that had been added as they were entered
+    displayWordList(); //Display words from the words object to make them easier to work with in the game
+    enterword.value = ""; //Clear red warning message if it's there
+  } 
 });
 
 //Click New Game button

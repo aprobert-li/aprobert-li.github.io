@@ -68,7 +68,9 @@ input {
   margin-bottom: 0;
   vertical-align: top;
 }
-
+input:focus::placeholder {
+  color: transparent;
+}
 #submitbtn {
   display: inline-block;
   vertical-align: top;
